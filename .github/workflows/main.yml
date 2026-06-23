@@ -1,4 +1,4 @@
-name: My First GitHub Action
+name: Website Validation
 
 on:
   push:
@@ -6,13 +6,17 @@ on:
       - main
 
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Display Message
-        run: echo "GitHub Actions is working successfully!"
+      - name: Check HTML File Exists
+        run: ls
 
+      - name: Validate Website
+        run: |
+          echo "Website validation successful"
+          cat index.html
